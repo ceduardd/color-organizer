@@ -1,12 +1,11 @@
 import React from 'react';
 import useInput from '../hooks/useInput';
-import 'bootstrap';
 
-const AddColorForm = ({ onNewColor = (f) => f }) => {
+const AddColorForm = ({ onNewColor = f => f }) => {
   const [propsTitle, resetTitle] = useInput('');
   const [propsColor, resetColor] = useInput('#000000');
 
-  const submit = (e) => {
+  const submit = e => {
     e.preventDefault();
     onNewColor(propsTitle.value, propsColor.value);
     resetTitle();
@@ -14,14 +13,14 @@ const AddColorForm = ({ onNewColor = (f) => f }) => {
   };
 
   return (
-    <form className='form-group' onSubmit={submit}>
+    <form onSubmit={submit}>
       <input
         {...propsTitle}
-        type='text'
-        placeholder='Type a color title'
+        type="text"
+        placeholder="type a color title..."
         required
       />
-      <input {...propsColor} type='color' required />
+      <input {...propsColor} type="color" required />
       <button>Add</button>
     </form>
   );

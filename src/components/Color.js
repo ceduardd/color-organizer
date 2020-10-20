@@ -1,6 +1,5 @@
 import React from 'react';
 import StarRating from './StarRating';
-
 import { FaTrash } from 'react-icons/fa';
 
 export default function Color({
@@ -8,8 +7,8 @@ export default function Color({
   title,
   color,
   rating,
-  onRemove = (f) => f,
-  onRate = (f) => f,
+  onRemove = f => f,
+  onRate = f => f,
 }) {
   return (
     <section>
@@ -20,7 +19,7 @@ export default function Color({
       <div style={{ height: 50, backgroundColor: color }} />
       <StarRating
         selectedStars={rating}
-        onRate={(rating) => onRate(id, rating)}
+        onRate={rating => onRate(id, rating)}
       />
     </section>
   );
